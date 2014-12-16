@@ -1,8 +1,9 @@
 package io.prediction.example.yelp;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Restaurant {
+public class Restaurant implements Serializable{
     String bid;
     String name;
     String address;
@@ -10,7 +11,7 @@ public class Restaurant {
     double longitude;
     double latitude;
     double stars;
-
+    int image;
     public Restaurant(String bid, String name, String address,
                       ArrayList<String> categories, double longitude, double latitude,
                       double stars) {
@@ -23,6 +24,10 @@ public class Restaurant {
         this.latitude = latitude;
         this.stars = stars;
     }
+
+    public int getImage() { return this.image; }
+
+    public void setImage(int image) { this.image = image; }
 
     public String getBid() {
         return bid;

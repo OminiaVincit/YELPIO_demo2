@@ -1,0 +1,1337 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:paddingTop="15dp"
+    android:id="@+id/root"
+    tools:context="io.prediction.example.yelp.PrefActivity">
+
+
+    <RelativeLayout
+        android:id="@+id/pref10"
+        android:orientation="vertical"
+        android:layout_width="400dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="500dp"
+        android:layout_marginTop="55dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/shape">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+            <fragment
+                android:id="@+id/pref_map10"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="15dp"
+                android:name="com.google.android.gms.maps.MapFragment" />
+
+            <TextView
+                android:id="@+id/pref_name10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Burger King"
+                android:textColor="@color/pacers_navy"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:layout_marginTop="15dp"
+                android:layout_below="@+id/detail_map" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/pref_address10"
+                android:text="500 N. Matin Jischke Dr"
+                android:textColor="@color/grey"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:textSize="15sp" />
+
+            <ImageView
+                android:id="@+id/pref_image10"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/bbq"
+                android:layout_marginTop="10dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/pref_categories10"
+                android:textColor="#000"
+                android:text="Barbeque"
+                android:gravity="center" />
+
+            <RatingBar
+                android:id="@+id/pref_rating10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:numStars="5"
+                android:stepSize="1"
+                android:rating="2.0"
+                android:layout_marginLeft="-5dp"
+                android:isIndicator="true"
+                android:layout_centerHorizontal="true" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true"
+            android:weightSum="1"
+            android:layout_marginBottom="10dp"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:src="@drawable/dislike_resized"
+                android:background="@drawable/circle"
+                android:layout_marginRight="30dp"
+                android:id="@+id/dislikeButton10"
+                android:clickable="true"
+                android:padding="30dp" />
+
+            <ImageView
+                android:layout_width="110dp"
+                android:background="@drawable/circle"
+                android:layout_height="110dp"
+                android:id="@+id/likeButton10"
+                android:clickable="true"
+                android:src="@drawable/like" />
+
+        </LinearLayout>
+        <TextView
+            android:id="@+id/pref_like10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="80sp"
+            android:text="LIKE"
+            android:layout_centerInParent="true"
+            android:textColor="@color/start_green"
+            android:visibility="gone"
+            android:padding="15dp"
+            android:background="@drawable/border"/>
+
+        <TextView
+            android:id="@+id/pref_dislike10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="80sp"
+            android:text="DISLIKE"
+            android:layout_centerInParent="true"
+            android:textColor="@color/stop_red"
+            android:padding="15dp"
+            android:visibility="gone"
+            android:background="@drawable/border_red"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/pref9"
+        android:orientation="vertical"
+        android:layout_width="400dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="500dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/shape">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+            <fragment
+                android:id="@+id/pref_map9"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="15dp"
+                android:name="com.google.android.gms.maps.MapFragment" />
+
+            <TextView
+                android:id="@+id/pref_name9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Burger King"
+                android:textColor="@color/pacers_navy"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:layout_marginTop="15dp"
+                android:layout_below="@+id/detail_map" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/pref_address9"
+                android:text="500 N. Matin Jischke Dr"
+                android:textColor="@color/grey"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:textSize="15sp" />
+
+            <ImageView
+                android:id="@+id/pref_image9"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/bbq"
+                android:layout_marginTop="10dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/pref_categories9"
+                android:textColor="#000"
+                android:text="Barbeque"
+                android:gravity="center" />
+
+            <RatingBar
+                android:id="@+id/pref_rating9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:numStars="5"
+                android:stepSize="1"
+                android:rating="2.0"
+                android:layout_marginLeft="-5dp"
+                android:isIndicator="true"
+                android:layout_centerHorizontal="true" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true"
+            android:weightSum="1"
+            android:layout_marginBottom="10dp"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:src="@drawable/dislike_resized"
+                android:background="@drawable/circle"
+                android:layout_marginRight="30dp"
+                android:id="@+id/dislikeButton9"
+                android:clickable="true"
+                android:padding="30dp" />
+
+            <ImageView
+                android:layout_width="110dp"
+                android:background="@drawable/circle"
+                android:layout_height="110dp"
+                android:id="@+id/likeButton9"
+                android:clickable="true"
+                android:src="@drawable/like" />
+
+        </LinearLayout>
+        <TextView
+            android:id="@+id/pref_like9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="80sp"
+            android:text="LIKE"
+            android:layout_centerInParent="true"
+            android:textColor="@color/start_green"
+            android:visibility="gone"
+            android:padding="15dp"
+            android:background="@drawable/border"/>
+
+        <TextView
+            android:id="@+id/pref_dislike9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="80sp"
+            android:text="DISLIKE"
+            android:layout_centerInParent="true"
+            android:textColor="@color/stop_red"
+            android:padding="15dp"
+            android:visibility="gone"
+            android:background="@drawable/border_red"/>
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/pref8"
+        android:orientation="vertical"
+        android:layout_width="400dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="500dp"
+        android:layout_marginTop="45dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/shape">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+            <fragment
+                android:id="@+id/pref_map8"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="15dp"
+                android:name="com.google.android.gms.maps.MapFragment" />
+
+            <TextView
+                android:id="@+id/pref_name8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Burger King"
+                android:textColor="@color/pacers_navy"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:layout_marginTop="15dp"
+                android:layout_below="@+id/detail_map" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/pref_address8"
+                android:text="500 N. Matin Jischke Dr"
+                android:textColor="@color/grey"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:textSize="15sp" />
+
+            <ImageView
+                android:id="@+id/pref_image8"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/bbq"
+                android:layout_marginTop="10dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/pref_categories8"
+                android:textColor="#000"
+                android:text="Barbeque"
+                android:gravity="center" />
+
+            <RatingBar
+                android:id="@+id/pref_rating8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:numStars="5"
+                android:stepSize="1"
+                android:rating="2.0"
+                android:layout_marginLeft="-5dp"
+                android:isIndicator="true"
+                android:layout_centerHorizontal="true" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true"
+            android:weightSum="1"
+            android:layout_marginBottom="10dp"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:src="@drawable/dislike_resized"
+                android:background="@drawable/circle"
+                android:layout_marginRight="30dp"
+                android:id="@+id/dislikeButton8"
+                android:clickable="true"
+                android:padding="30dp" />
+
+            <ImageView
+                android:layout_width="110dp"
+                android:background="@drawable/circle"
+                android:layout_height="110dp"
+                android:id="@+id/likeButton8"
+                android:clickable="true"
+                android:src="@drawable/like" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/pref_like8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="80sp"
+            android:text="LIKE"
+            android:layout_centerInParent="true"
+            android:textColor="@color/start_green"
+            android:visibility="gone"
+            android:padding="15dp"
+            android:background="@drawable/border"/>
+
+        <TextView
+            android:id="@+id/pref_dislike8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="80sp"
+            android:text="DISLIKE"
+            android:layout_centerInParent="true"
+            android:textColor="@color/stop_red"
+            android:padding="15dp"
+            android:visibility="gone"
+            android:background="@drawable/border_red"/>
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/pref7"
+        android:orientation="vertical"
+        android:layout_width="400dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="500dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/shape">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+            <fragment
+                android:id="@+id/pref_map7"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="15dp"
+                android:name="com.google.android.gms.maps.MapFragment" />
+
+            <TextView
+                android:id="@+id/pref_name7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Burger King"
+                android:textColor="@color/pacers_navy"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:layout_marginTop="15dp"
+                android:layout_below="@+id/detail_map" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/pref_address7"
+                android:text="500 N. Matin Jischke Dr"
+                android:textColor="@color/grey"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:textSize="15sp" />
+
+            <ImageView
+                android:id="@+id/pref_image7"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/bbq"
+                android:layout_marginTop="10dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/pref_categories7"
+                android:textColor="#000"
+                android:text="Barbeque"
+                android:gravity="center" />
+
+            <RatingBar
+                android:id="@+id/pref_rating7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:numStars="5"
+                android:stepSize="1"
+                android:rating="2.0"
+                android:layout_marginLeft="-5dp"
+                android:isIndicator="true"
+                android:layout_centerHorizontal="true" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true"
+            android:weightSum="1"
+            android:layout_marginBottom="10dp"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:src="@drawable/dislike_resized"
+                android:background="@drawable/circle"
+                android:layout_marginRight="30dp"
+                android:id="@+id/dislikeButton7"
+                android:clickable="true"
+                android:padding="30dp" />
+
+            <ImageView
+                android:layout_width="110dp"
+                android:background="@drawable/circle"
+                android:layout_height="110dp"
+                android:id="@+id/likeButton7"
+                android:clickable="true"
+                android:src="@drawable/like" />
+
+        </LinearLayout>
+        <TextView
+            android:id="@+id/pref_like7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="80sp"
+            android:text="LIKE"
+            android:layout_centerInParent="true"
+            android:textColor="@color/start_green"
+            android:visibility="gone"
+            android:padding="15dp"
+            android:background="@drawable/border"/>
+
+        <TextView
+            android:id="@+id/pref_dislike7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="80sp"
+            android:text="DISLIKE"
+            android:layout_centerInParent="true"
+            android:textColor="@color/stop_red"
+            android:padding="15dp"
+            android:visibility="gone"
+            android:background="@drawable/border_red"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/pref6"
+        android:orientation="vertical"
+        android:layout_width="400dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="500dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/shape">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+            <fragment
+                android:id="@+id/pref_map6"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="15dp"
+                android:name="com.google.android.gms.maps.MapFragment" />
+
+            <TextView
+                android:id="@+id/pref_name6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Burger King"
+                android:textColor="@color/pacers_navy"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:layout_marginTop="15dp"
+                android:layout_below="@+id/detail_map" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/pref_address6"
+                android:text="500 N. Matin Jischke Dr"
+                android:textColor="@color/grey"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:textSize="15sp" />
+
+            <ImageView
+                android:id="@+id/pref_image6"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/bbq"
+                android:layout_marginTop="10dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/pref_categories6"
+                android:textColor="#000"
+                android:text="Barbeque"
+                android:gravity="center" />
+
+            <RatingBar
+                android:id="@+id/pref_rating6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:numStars="5"
+                android:stepSize="1"
+                android:rating="2.0"
+                android:layout_marginLeft="-5dp"
+                android:isIndicator="true"
+                android:layout_centerHorizontal="true" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true"
+            android:weightSum="1"
+            android:layout_marginBottom="10dp"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:src="@drawable/dislike_resized"
+                android:background="@drawable/circle"
+                android:layout_marginRight="30dp"
+                android:id="@+id/dislikeButton6"
+                android:clickable="true"
+                android:padding="30dp" />
+
+            <ImageView
+                android:layout_width="110dp"
+                android:background="@drawable/circle"
+                android:layout_height="110dp"
+                android:id="@+id/likeButton6"
+                android:clickable="true"
+                android:src="@drawable/like" />
+
+        </LinearLayout>
+        <TextView
+            android:id="@+id/pref_like6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="80sp"
+            android:text="LIKE"
+            android:layout_centerInParent="true"
+            android:textColor="@color/start_green"
+            android:visibility="gone"
+            android:padding="15dp"
+            android:background="@drawable/border"/>
+
+        <TextView
+            android:id="@+id/pref_dislike6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="80sp"
+            android:text="DISLIKE"
+            android:layout_centerInParent="true"
+            android:textColor="@color/stop_red"
+            android:padding="15dp"
+            android:visibility="gone"
+            android:background="@drawable/border_red"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/pref5"
+        android:orientation="vertical"
+        android:layout_width="400dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="500dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/shape">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+            <fragment
+                android:id="@+id/pref_map5"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="15dp"
+                android:name="com.google.android.gms.maps.MapFragment" />
+
+            <TextView
+                android:id="@+id/pref_name5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Burger King"
+                android:textColor="@color/pacers_navy"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:layout_marginTop="15dp"
+                android:layout_below="@+id/detail_map" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/pref_address5"
+                android:text="500 N. Matin Jischke Dr"
+                android:textColor="@color/grey"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:textSize="15sp" />
+
+            <ImageView
+                android:id="@+id/pref_image5"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/bbq"
+                android:layout_marginTop="10dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/pref_categories5"
+                android:textColor="#000"
+                android:text="Barbeque"
+                android:gravity="center" />
+
+            <RatingBar
+                android:id="@+id/pref_rating5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:numStars="5"
+                android:stepSize="1"
+                android:rating="2.0"
+                android:layout_marginLeft="-5dp"
+                android:isIndicator="true"
+                android:layout_centerHorizontal="true" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true"
+            android:weightSum="1"
+            android:layout_marginBottom="10dp"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:src="@drawable/dislike_resized"
+                android:background="@drawable/circle"
+                android:layout_marginRight="30dp"
+                android:id="@+id/dislikeButton5"
+                android:clickable="true"
+                android:padding="30dp" />
+
+            <ImageView
+                android:layout_width="110dp"
+                android:background="@drawable/circle"
+                android:layout_height="110dp"
+                android:id="@+id/likeButton5"
+                android:clickable="true"
+                android:src="@drawable/like" />
+
+        </LinearLayout>
+        <TextView
+            android:id="@+id/pref_like5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="80sp"
+            android:text="LIKE"
+            android:layout_centerInParent="true"
+            android:textColor="@color/start_green"
+            android:visibility="gone"
+            android:padding="15dp"
+            android:background="@drawable/border"/>
+
+        <TextView
+            android:id="@+id/pref_dislike5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="80sp"
+            android:text="DISLIKE"
+            android:layout_centerInParent="true"
+            android:textColor="@color/stop_red"
+            android:padding="15dp"
+            android:visibility="gone"
+            android:background="@drawable/border_red"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/pref4"
+        android:orientation="vertical"
+        android:layout_width="400dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="500dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/shape">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+            <fragment
+                android:id="@+id/pref_map4"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="15dp"
+                android:name="com.google.android.gms.maps.MapFragment" />
+
+            <TextView
+                android:id="@+id/pref_name4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Burger King"
+                android:textColor="@color/pacers_navy"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:layout_marginTop="15dp"
+                android:layout_below="@+id/detail_map" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/pref_address4"
+                android:text="500 N. Matin Jischke Dr"
+                android:textColor="@color/grey"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:textSize="15sp" />
+
+            <ImageView
+                android:id="@+id/pref_image4"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/bbq"
+                android:layout_marginTop="10dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/pref_categories4"
+                android:textColor="#000"
+                android:text="Barbeque"
+                android:gravity="center" />
+
+            <RatingBar
+                android:id="@+id/pref_rating4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:numStars="5"
+                android:stepSize="1"
+                android:rating="2.0"
+                android:layout_marginLeft="-5dp"
+                android:isIndicator="true"
+                android:layout_centerHorizontal="true" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true"
+            android:weightSum="1"
+            android:layout_marginBottom="10dp"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:src="@drawable/dislike_resized"
+                android:background="@drawable/circle"
+                android:layout_marginRight="30dp"
+                android:id="@+id/dislikeButton4"
+                android:clickable="true"
+                android:padding="30dp" />
+
+            <ImageView
+                android:layout_width="110dp"
+                android:background="@drawable/circle"
+                android:layout_height="110dp"
+                android:id="@+id/likeButton4"
+                android:clickable="true"
+                android:src="@drawable/like" />
+
+        </LinearLayout>
+        <TextView
+            android:id="@+id/pref_like4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="80sp"
+            android:text="LIKE"
+            android:layout_centerInParent="true"
+            android:textColor="@color/start_green"
+            android:visibility="gone"
+            android:padding="15dp"
+            android:background="@drawable/border"/>
+
+        <TextView
+            android:id="@+id/pref_dislike4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="80sp"
+            android:text="DISLIKE"
+            android:layout_centerInParent="true"
+            android:textColor="@color/stop_red"
+            android:padding="15dp"
+            android:visibility="gone"
+            android:background="@drawable/border_red"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/pref3"
+        android:orientation="vertical"
+        android:layout_width="400dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="500dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/shape">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+            <fragment
+                android:id="@+id/pref_map3"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="15dp"
+                android:name="com.google.android.gms.maps.MapFragment" />
+
+            <TextView
+                android:id="@+id/pref_name3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Burger King"
+                android:textColor="@color/pacers_navy"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:layout_marginTop="15dp"
+                android:layout_below="@+id/detail_map" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/pref_address3"
+                android:text="500 N. Matin Jischke Dr"
+                android:textColor="@color/grey"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:textSize="15sp" />
+
+            <ImageView
+                android:id="@+id/pref_image3"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/bbq"
+                android:layout_marginTop="10dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/pref_categories3"
+                android:textColor="#000"
+                android:text="Barbeque"
+                android:gravity="center" />
+
+            <RatingBar
+                android:id="@+id/pref_rating3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:numStars="5"
+                android:stepSize="1"
+                android:rating="2.0"
+                android:layout_marginLeft="-5dp"
+                android:isIndicator="true"
+
+                android:layout_centerHorizontal="true" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true"
+            android:weightSum="1"
+            android:layout_marginBottom="10dp"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:src="@drawable/dislike_resized"
+                android:background="@drawable/circle"
+                android:layout_marginRight="30dp"
+                android:id="@+id/dislikeButton3"
+                android:clickable="true"
+                android:padding="30dp" />
+
+            <ImageView
+                android:layout_width="110dp"
+                android:background="@drawable/circle"
+                android:layout_height="110dp"
+                android:id="@+id/likeButton3"
+                android:clickable="true"
+                android:src="@drawable/like" />
+
+        </LinearLayout>
+        <TextView
+            android:id="@+id/pref_like3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="80sp"
+            android:text="LIKE"
+            android:layout_centerInParent="true"
+            android:textColor="@color/start_green"
+            android:visibility="gone"
+            android:padding="15dp"
+            android:background="@drawable/border"/>
+
+        <TextView
+            android:id="@+id/pref_dislike3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="80sp"
+            android:text="DISLIKE"
+            android:layout_centerInParent="true"
+            android:textColor="@color/stop_red"
+            android:padding="15dp"
+            android:visibility="gone"
+            android:background="@drawable/border_red"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/pref2"
+        android:orientation="vertical"
+        android:layout_width="400dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="500dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/shape">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+            <fragment
+                android:id="@+id/pref_map2"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="15dp"
+                android:name="com.google.android.gms.maps.MapFragment" />
+
+            <TextView
+                android:id="@+id/pref_name2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Burger King"
+                android:textColor="@color/pacers_navy"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:layout_marginTop="15dp"
+                android:layout_below="@+id/detail_map" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/pref_address2"
+                android:text="500 N. Matin Jischke Dr"
+                android:textColor="@color/grey"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:textSize="15sp" />
+
+            <ImageView
+                android:id="@+id/pref_image2"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/bbq"
+                android:layout_marginTop="10dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/pref_categories2"
+                android:textColor="#000"
+                android:text="Barbeque"
+                android:gravity="center" />
+
+            <RatingBar
+                android:id="@+id/pref_rating2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:numStars="5"
+                android:stepSize="1"
+                android:rating="2.0"
+                android:layout_marginLeft="-5dp"
+                android:isIndicator="true"
+
+                android:layout_centerHorizontal="true" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true"
+            android:weightSum="1"
+            android:layout_marginBottom="10dp"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:src="@drawable/dislike_resized"
+                android:background="@drawable/circle"
+                android:layout_marginRight="30dp"
+                android:id="@+id/dislikeButton2"
+                android:clickable="true"
+                android:padding="30dp" />
+
+            <ImageView
+                android:layout_width="110dp"
+                android:background="@drawable/circle"
+                android:layout_height="110dp"
+                android:id="@+id/likeButton2"
+                android:clickable="true"
+                android:src="@drawable/like" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/pref_like2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="80sp"
+            android:text="LIKE"
+            android:layout_centerInParent="true"
+            android:textColor="@color/start_green"
+            android:visibility="gone"
+            android:padding="15dp"
+            android:background="@drawable/border"/>
+
+        <TextView
+            android:id="@+id/pref_dislike2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="80sp"
+            android:text="DISLIKE"
+            android:layout_centerInParent="true"
+            android:textColor="@color/stop_red"
+            android:padding="15dp"
+            android:visibility="gone"
+            android:background="@drawable/border_red"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/pref1"
+        android:orientation="vertical"
+        android:layout_width="400dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="500dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/shape">
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+            <fragment
+                android:id="@+id/pref_map1"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="15dp"
+                android:name="com.google.android.gms.maps.MapFragment" />
+
+            <TextView
+                android:id="@+id/pref_name1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Burger King"
+                android:textColor="@color/pacers_navy"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:layout_marginTop="15dp"
+                android:layout_below="@+id/detail_map" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/pref_address1"
+                android:text="500 N. Matin Jischke Dr"
+                android:textColor="@color/grey"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:textSize="15sp" />
+
+            <ImageView
+                android:id="@+id/pref_image1"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/bbq"
+                android:layout_marginTop="10dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/pref_categories1"
+                android:textColor="#000"
+                android:text="Barbeque"
+                android:gravity="center" />
+
+            <RatingBar
+                android:id="@+id/pref_rating1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:numStars="5"
+                android:stepSize="1"
+                android:rating="2.0"
+                android:layout_marginLeft="-5dp"
+                android:isIndicator="true"
+                android:layout_centerHorizontal="true" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true"
+            android:weightSum="1"
+            android:layout_marginBottom="10dp"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:src="@drawable/dislike_resized"
+                android:background="@drawable/circle"
+                android:layout_marginRight="30dp"
+                android:id="@+id/dislikeButton1"
+                android:clickable="true"
+                android:padding="30dp" />
+
+            <ImageView
+                android:layout_width="110dp"
+                android:background="@drawable/circle"
+                android:layout_height="110dp"
+                android:id="@+id/likeButton1"
+                android:clickable="true"
+                android:src="@drawable/like" />
+
+        </LinearLayout>
+        <TextView
+            android:id="@+id/pref_like1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="80sp"
+            android:text="LIKE"
+            android:layout_centerInParent="true"
+            android:textColor="@color/start_green"
+            android:visibility="gone"
+            android:padding="15dp"
+            android:background="@drawable/border"/>
+
+        <TextView
+            android:id="@+id/pref_dislike1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="80sp"
+            android:text="DISLIKE"
+            android:layout_centerInParent="true"
+            android:textColor="@color/stop_red"
+            android:padding="15dp"
+            android:visibility="gone"
+            android:background="@drawable/border_red"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

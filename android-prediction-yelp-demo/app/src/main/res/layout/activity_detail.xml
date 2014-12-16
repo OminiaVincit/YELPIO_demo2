@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context="io.prediction.example.yelp.DetailActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:paddingBottom="10dp">
+
+            <fragment
+                android:id="@+id/detail_map"
+                android:layout_width="match_parent"
+                android:layout_height="330dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="30dp"
+                android:name="com.google.android.gms.maps.MapFragment" />
+
+            <TextView
+                android:id="@+id/detail_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Burger King"
+                android:textColor="@color/pacers_navy"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:layout_marginTop="15dp" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/detail_address"
+                android:text="500 N. Matin Jischke Dr"
+                android:textColor="@color/grey"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:textSize="15sp"
+                />
+
+            <ImageView
+                android:id="@+id/detail_image"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:src="@drawable/bbq"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/detail_categories"
+                android:textColor="#000"
+                android:text="Barbeque"
+                android:gravity="center"/>
+
+            <RatingBar
+                android:id="@+id/detail_rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:numStars="5"
+                android:stepSize="1"
+                android:rating="2.0"
+                android:layout_marginLeft="-5dp"
+                android:layout_centerHorizontal="true"
+                android:isIndicator="true"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Reviews"
+                android:textColor="@color/pacers_navy"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:layout_marginTop="15dp" />
+
+            <RatingBar
+                android:id="@+id/review_rating1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:numStars="5"
+                android:stepSize="1"
+                android:rating="2.0"
+                android:layout_centerHorizontal="true"
+                android:isIndicator="true"
+                style="?android:attr/ratingBarStyleSmall"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:layout_marginTop="5dp"
+                android:id="@+id/review1_short"
+                android:text="ReviewReviewReviewReviewReviewReviewReviewReviewReviewReview ... "
+                android:textSize="15sp"
+                android:paddingBottom="15dp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:layout_marginTop="5dp"
+                android:id="@+id/review1_long"
+                android:text="ReviewReviewRReviewRReviewRReviewRReviewRReviewRReviewRReviewRReviewRReviewRReviewReviewReviewReviewReviewReviewReviewReviewReview ... "
+                android:textSize="15sp"
+                android:visibility="gone"
+                android:paddingBottom="15dp"
+                />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:background="#ccc"/>
+
+            <RatingBar
+                android:id="@+id/review_rating2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:numStars="5"
+                android:stepSize="1"
+                android:rating="2.0"
+                android:layout_centerHorizontal="true"
+                android:isIndicator="true"
+                style="?android:attr/ratingBarStyleSmall"
+                android:layout_marginTop="15dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:layout_marginTop="5dp"
+                android:id="@+id/review2_short"
+                android:text="ReviewReviewReviewReviewReviewReviewReviewReviewReviewReview ... "
+                android:textSize="15sp"
+                android:paddingBottom="15dp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:layout_marginTop="5dp"
+                android:id="@+id/review2_long"
+                android:text="ReviewReviewRReviewRReviewRReviewRReviewRReviewRReviewRReviewRReviewRReviewRReviewReviewReviewReviewReviewReviewReviewReviewReview ... "
+                android:textSize="15sp"
+                android:visibility="gone"
+                android:paddingBottom="15dp"
+                />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:background="#ccc"/>
+
+            <RatingBar
+                android:id="@+id/review_rating3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:numStars="5"
+                android:stepSize="1"
+                android:rating="2.0"
+                android:layout_centerHorizontal="true"
+                android:isIndicator="true"
+                style="?android:attr/ratingBarStyleSmall"
+                android:layout_marginTop="15dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:layout_marginTop="5dp"
+                android:id="@+id/review3_short"
+                android:text="ReviewReviewReviewReviewReviewReviewReviewReviewReviewReview ... "
+                android:textSize="15sp"
+                android:paddingBottom="15dp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:layout_marginTop="5dp"
+                android:id="@+id/review3_long"
+                android:text="ReviewReviewRReviewRReviewRReviewRReviewRReviewRReviewRReviewRReviewRReviewRReviewReviewReviewReviewReviewReviewReviewReviewReview ... "
+                android:textSize="15sp"
+                android:visibility="gone"
+                android:paddingBottom="15dp"
+                />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:background="#ccc"/>
+
+            <RatingBar
+                android:id="@+id/review_rating4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:numStars="5"
+                android:stepSize="1"
+                android:rating="2.0"
+                android:layout_centerHorizontal="true"
+                android:isIndicator="true"
+                style="?android:attr/ratingBarStyleSmall"
+                android:layout_marginTop="15dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:layout_marginTop="5dp"
+                android:id="@+id/review4_short"
+                android:text="ReviewReviewReviewReviewReviewReviewReviewReviewReviewReview ... "
+                android:textSize="15sp"
+                android:paddingBottom="15dp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:layout_marginTop="5dp"
+                android:id="@+id/review4_long"
+                android:text="ReviewReviewRReviewRReviewRReviewRReviewRReviewRReviewRReviewRReviewRReviewRReviewReviewReviewReviewReviewReviewReviewReviewReview ... "
+                android:textSize="15sp"
+                android:visibility="gone"
+                android:paddingBottom="15dp"
+                />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:background="#ccc"/>
+
+            <RatingBar
+                android:id="@+id/review_rating5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:numStars="5"
+                android:stepSize="1"
+                android:rating="2.0"
+                android:layout_centerHorizontal="true"
+                android:isIndicator="true"
+                style="?android:attr/ratingBarStyleSmall"
+                android:layout_marginTop="15dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:layout_marginTop="5dp"
+                android:id="@+id/review5_short"
+                android:text="ReviewReviewReviewReviewReviewReviewReviewReviewReviewReview ... "
+                android:textSize="15sp"
+
+                android:paddingBottom="15dp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:layout_marginTop="5dp"
+                android:id="@+id/review5_long"
+                android:text="ReviewReviewRReviewRReviewRReviewRReviewRReviewRReviewRReviewRReviewRReviewRReviewReviewReviewReviewReviewReviewReviewReviewReview ... "
+                android:textSize="15sp"
+                android:visibility="gone"
+
+                android:paddingBottom="15dp"
+                />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

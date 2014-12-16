@@ -17,7 +17,7 @@ android {
     }
     defaultConfig {
         applicationId "io.prediction.example.yelp"
-        minSdkVersion 14
+        minSdkVersion 16
         targetSdkVersion 19
     }
 
@@ -34,6 +34,9 @@ repositories {
 
 dependencies {
     compile 'com.android.support:support-v4:19.1.0'
-    compile 'io.prediction:client:0.8.0'
+    compile 'io.prediction:client:0.8.2'
     compile 'com.googlecode.json-simple:json-simple:1.1'
+    compile 'com.nhaarman.listviewanimations:library:2.6.0'
+    compile 'com.google.android.gms:play-services:4.2.42'
+
 }
