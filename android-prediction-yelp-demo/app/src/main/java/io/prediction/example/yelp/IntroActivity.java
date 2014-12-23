@@ -31,67 +31,63 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 
+
+/*
+* Splash Screen Activity
+* Create User, Get nearby Restaurants in this activity.
+*/
+
 public class IntroActivity extends Activity {
 
-    SharedPreferences mPrefs;
-    AppDataCollect app;
+    private SharedPreferences mPrefs;
+    private AppDataCollect app;
 
 
     private HashMap<String, Restaurant> restaurant_maps = new HashMap<String, Restaurant>();
     private ArrayList<Restaurant> restaurant_list = new ArrayList<Restaurant>();
 
 
-    HashMap<ArrayList<String>, Integer> food_category_map;
-    ArrayList<String> categories;
+    private HashMap<ArrayList<String>, Integer> food_category_map;
+    private ArrayList<String> categories;
 
-
-    Double currentLat;
-    Double currentLong;
-    ArrayList<Restaurant> nearRest;
-
-    JSONObject postData = new JSONObject();
+    private JSONObject postData = new JSONObject();
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         // Full page logo screen - remove title bar
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_intro);
 
-
+        //Getting a device ID in order to generate an Unique User ID
         DeviceUuidFactory uuid = new DeviceUuidFactory(this);
         String userId = uuid.getDeviceUuid().toString();
 
         mPrefs = getSharedPreferences("device_id.xml", 0);
         if (mPrefs.getBoolean("userExist", false)) {
-            Log.e("USER EXIST", "TRUE");
+            Log.d("USER", "Exist.");
         } else {
-            Log.e("DOES NOT EXIST", "false");
+            Log.d("User", "Does not exist.");
+
             //Post request to create a user.
             JSONObject user = new JSONObject();
             user.put("name", "pio");
             user.put("yelp_user_id", userId);
 
             postData.put("user", user);
-
-            Log.e("POST DATA", postData.toString());
             new PostUser().execute();
 
         }
 
-        //Hard coded location in AZ state
-        currentLat = 33.710670999999998;
-        currentLong = -112.202473;
 
-        nearRest = new ArrayList<Restaurant>();
-
+        //Getting nearby restaurants from Server
         app = ((AppDataCollect) this.getApplication());
-
-
         new GetRestaurants().execute();
 
 
+        //Generating category images
         food_category_map = new HashMap<ArrayList<String>, Integer>();
 
         //Setting icons
@@ -219,10 +215,17 @@ public class IntroActivity extends Activity {
     ///////////////////////////////////////ASYNC TASK////////////////////////////////////////////
 
 
+    /*
+    ** Getting nearby Restaurants from server
+    ** For now, the default location is hard coded because we only have the dataset for Arizona state.
+    ** If we can get the datasource for the whole country, we can use this application to actually get the nearby restaurants
+    ** by specifying coordinates on the url parameter.
+    */
     private class GetRestaurants extends AsyncTask<String, String, String> {
 
 
-        String url = "http://zorovn.hongo.wide.ad.jp/api/v1/businesses?categorize=restaurant&radius=5&longitude=-111.92605&latitude=33.494&page_size=10&categorize=Restaurants";
+        //URL for getting the restaurants
+        private String url = "http://zorovn.hongo.wide.ad.jp/api/v1/businesses?categorize=restaurant&radius=5&longitude=-111.92605&latitude=33.494&page_size=10&categorize=Restaurants";
 
         public GetRestaurants() {
             super();
@@ -256,14 +259,10 @@ public class IntroActivity extends Activity {
         }
 
         @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-
-        }
-
-        @Override
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
+            //Once get the result from the server, generate an ArrayList of them.
+
             JSONParser parser = new JSONParser();
             try {
                 JSONArray jobj = (JSONArray) parser.parse(result);
@@ -291,7 +290,8 @@ public class IntroActivity extends Activity {
                             address, categories, longitude, latitude,
                             stars);
 
-                    //Image setting
+                    //Category Image setting
+                    //Find category first, and if there's no match, find the name of the restaurant.
                     Boolean isChanged = false;
                     for (String item : restaurant.getCategories()) {
                         item = item.toLowerCase().replace(" ", "");
@@ -319,6 +319,8 @@ public class IntroActivity extends Activity {
                 app.setRestaurantMaps(restaurant_maps);
                 app.setRestaurants_list(restaurant_list);
 
+
+                //When getting data is done, move on to Preference Activity
                 Intent i = new Intent(IntroActivity.this, PrefActivity.class);
                 startActivity(i);
                 finish();
@@ -337,6 +339,7 @@ public class IntroActivity extends Activity {
     }
 
 
+    //Create a new user.
     private class PostUser extends AsyncTask<String, String, String> {
 
 
@@ -389,14 +392,13 @@ public class IntroActivity extends Activity {
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
 
-            //New user has been created
+            //After the new user is created, update the sharedPreference.
             mPrefs.edit().putBoolean("userExist", true).commit();
 
 
         }
 
     }
-
 
 
 }

@@ -6,7 +6,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,10 +21,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-
+/*
+** Show the list of recommendations received from the server
+*/
 public class RestaurantListActivity extends Activity {
     HashMap<String, Restaurant> restaurants;
-    //GetResult getResult;
     ArrayList<Restaurant> resultRestaurants;
 
     @Override
@@ -39,13 +39,6 @@ public class RestaurantListActivity extends Activity {
         resultRestaurants = ((AppDataCollect) this.getApplication()).getRestaurants_list();
 
         ListView restaurant_list = (ListView) findViewById(R.id.restaurant_list);
-
-
-       /* for (String key : restaurants.keySet()) {
-            resultRestaurants.add(restaurants.get(key));
-        }
-        */
-        Log.e("LIST SIZE", resultRestaurants.size() + "");
 
         generateList(restaurant_list, R.layout.item_restaurant);
 
@@ -62,8 +55,6 @@ public class RestaurantListActivity extends Activity {
 
     private class MyListAdapter extends ArrayAdapter<Restaurant> {
         List<Restaurant> list;
-        HashMap<ArrayList<String>, Integer> food_category_map = new HashMap<ArrayList<String>, Integer>();
-        ArrayList<String> categories;
 
         private int resource;
 
@@ -91,10 +82,6 @@ public class RestaurantListActivity extends Activity {
             ArrayList<String> category = curItem.getCategories();
             String number = (position + 1) + ".";
 
-            //coordinates
-            final double latitude = curItem.getLatitude();
-            final double longitude = curItem.getLongitude();
-
             ImageView rest_image = (ImageView) rowView.findViewById(R.id.rest_image);
             TextView rest_name_view = (TextView) rowView.findViewById(R.id.rest_name);
             TextView rest_category_view = (TextView) rowView.findViewById(R.id.rest_categories);
@@ -107,20 +94,18 @@ public class RestaurantListActivity extends Activity {
             rest_address_view.setText(address);
             rest_category_view.setText(category.toString());
             ratingBar.setRating(rating);
+            rest_image.setImageDrawable(getResources().getDrawable(curItem.getImage()));
 
 
             rowView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    //When the item is clicked, move on to the detail activity and transfer the selected restaurant object.
                     Intent intent = new Intent(getApplicationContext(), DetailActivity.class);
                     intent.putExtra("restaurant", curItem);
                     startActivity(intent);
                 }
             });
-
-
-            rest_image.setImageDrawable(getResources().getDrawable(curItem.getImage()));
-
 
             return rowView;
         }
@@ -128,6 +113,7 @@ public class RestaurantListActivity extends Activity {
     }
 
     public void onBackPressed() {
+        //Alert dialog for exiting the app
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
                 RestaurantListActivity.this);
 

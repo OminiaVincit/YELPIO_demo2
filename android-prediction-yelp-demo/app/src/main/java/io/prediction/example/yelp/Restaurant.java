@@ -3,6 +3,10 @@ package io.prediction.example.yelp;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+/*
+** Data structure for Restaurants
+*/
+
 public class Restaurant implements Serializable{
     String bid;
     String name;

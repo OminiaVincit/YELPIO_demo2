@@ -48,6 +48,11 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/*
+** User can create LIKE or DISLIKE event in this activity
+** Each time the button is clicked, it does a POST request to the server to create a event.
+*/
+
 
 public class PrefActivity extends Activity implements View.OnTouchListener {
 
@@ -173,39 +178,34 @@ public class PrefActivity extends Activity implements View.OnTouchListener {
     TextView pref_dislike10;
 
 
-    HashMap<String, Restaurant> restaurants;
+    AppDataCollect app;
+
     ArrayList<Restaurant> prefRest;
     String userId;
 
     HashMap<ArrayList<String>, Integer> food_category_map;
     ArrayList<String> categories;
-    AppDataCollect app;
-    private HashMap<String, Restaurant> restaurant_maps = new HashMap<String, Restaurant>();
-    private ArrayList<Restaurant> restaurants_list = new ArrayList<Restaurant>();
+    HashMap<String, Restaurant> restaurant_maps = new HashMap<String, Restaurant>();
+    ArrayList<Restaurant> restaurants_list = new ArrayList<Restaurant>();
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setTheme(R.style.Theme_Example);
-
         setContentView(R.layout.activity_pref);
-
         overridePendingTransition(R.anim.in, R.anim.out);
 
-        restaurants = ((AppDataCollect) this.getApplication()).getRestaurantMaps();
-        /*prefRest = new ArrayList<Restaurant>();
 
-        for (String key : restaurants.keySet()) {
-            prefRest.add(restaurants.get(key));
-        }
-        */
+        //Get the userID
         DeviceUuidFactory uuid = new DeviceUuidFactory(this);
         userId = uuid.getDeviceUuid().toString();
 
+        //Get restaurant list from the previous activity
         app = ((AppDataCollect) this.getApplication());
         prefRest = app.getRestaurants_list();
+
+        //All 10 of restaurant panels are manually initialized
 
         ///////////// 1. ////////////////
         Restaurant rest = prefRest.get(0);
@@ -249,7 +249,6 @@ public class PrefActivity extends Activity implements View.OnTouchListener {
             @Override
             public void onInfoWindowClick(Marker marker) {
                 //This will redirect it to GoogleMaps
-
                 String url = "http://maps.google.com/maps?daddr=" + marker.getPosition().latitude + "," + marker.getPosition().longitude;
                 Intent intent = new Intent(android.content.Intent.ACTION_VIEW, Uri.parse(url));
                 intent.setClassName("com.google.android.apps.maps", "com.google.android.maps.MapsActivity");
@@ -739,6 +738,8 @@ public class PrefActivity extends Activity implements View.OnTouchListener {
         likeButton10.setOnTouchListener(this);
 
 
+
+        //Creating category image map again for recommended restaurant list
         food_category_map = new HashMap<ArrayList<String>, Integer>();
 
         //Setting icons
@@ -847,11 +848,14 @@ public class PrefActivity extends Activity implements View.OnTouchListener {
         Animation left_out = AnimationUtils.loadAnimation(this, R.anim.out);
         switch (motionEvent.getAction()) {
             case MotionEvent.ACTION_DOWN: {
+                //Button pressed effect
                 v.setBackground(v.getResources().getDrawable(R.drawable.circle_pressed));
                 break;
             }
             case MotionEvent.ACTION_UP: {
                 v.setBackground(v.getResources().getDrawable(R.drawable.circle));
+
+                //Handling button event individually
                 if (v.getId() == R.id.dislikeButton1) {
                     //Dislike event
                     JSONObject review = new JSONObject();
@@ -1482,6 +1486,7 @@ public class PrefActivity extends Activity implements View.OnTouchListener {
                     JSONObject postData = new JSONObject();
                     postData.put("review", review);
 
+                    //This time, set extra parameter to specifiy that this is the last event, so it needs to get the recommendation after the post request
                     new PostRating().execute(postData.toString(), "true");
                     left_out.setAnimationListener(new Animation.AnimationListener() {
                         @Override
@@ -1495,11 +1500,7 @@ public class PrefActivity extends Activity implements View.OnTouchListener {
 
                         @Override
                         public void onAnimationEnd(Animation animation) {
-
-
                             //Dislike event
-
-
                             pref10.setVisibility(View.INVISIBLE);
 
                         }
@@ -1518,6 +1519,7 @@ public class PrefActivity extends Activity implements View.OnTouchListener {
                     JSONObject postData = new JSONObject();
                     postData.put("review", review);
 
+                    //This time, set extra parameter to specifiy that this is the last event, so it needs to get the recommendation after the post request
                     new PostRating().execute(postData.toString(), "true");
 
                     right_out.setAnimationListener(new Animation.AnimationListener() {
@@ -1535,14 +1537,7 @@ public class PrefActivity extends Activity implements View.OnTouchListener {
 
 
                             //Like event
-
-
                             pref10.setVisibility(View.INVISIBLE);
-/*
-                            Intent i = new Intent(PrefActivity.this, RestaurantListActivity.class);
-                            startActivity(i);
-                            finish();
-*/
                         }
                     });
                     pref10.startAnimation(right_out);
@@ -1576,6 +1571,7 @@ public class PrefActivity extends Activity implements View.OnTouchListener {
     }
 
     public void onBackPressed() {
+        //Show alert dialog when user tries to exit the app
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
                 PrefActivity.this);
 
@@ -1610,6 +1606,84 @@ public class PrefActivity extends Activity implements View.OnTouchListener {
     }
 
 
+    ////////////////////////////////////////////////// ASYNC TASK /////////////////////////////////////////////////////
+
+    /*
+    ** Do Post request to the server to create a rating event
+    */
+    private class PostRating extends AsyncTask<String, String, String> {
+
+
+        String url = "http://zorovn.hongo.wide.ad.jp/api/v1/reviews?categorize=restaurant";
+
+        public PostRating() {
+            super();
+        }
+
+        @Override
+        protected String doInBackground(String... params) {
+            HttpClient httpclient = new DefaultHttpClient();
+            HttpResponse response;
+            String responseString = null;
+            try {
+
+                HttpPost httpPost = new HttpPost(url);
+                httpPost.setEntity(new StringEntity(params[0]));
+                httpPost.setHeader("Content-type", "application/json");
+                response = httpclient.execute(httpPost);
+                StatusLine statusLine = response.getStatusLine();
+                if (statusLine.getStatusCode() == HttpStatus.SC_OK) {
+                    ByteArrayOutputStream out = new ByteArrayOutputStream();
+                    response.getEntity().writeTo(out);
+                    out.close();
+                    responseString = out.toString();
+                } else {
+                    //Closes the connection.
+                    response.getEntity().getContent().close();
+                    throw new IOException(statusLine.getReasonPhrase());
+                }
+            } catch (UnsupportedEncodingException e) {
+                Log.e("Unsupported Encoding", e + "");
+            } catch (ClientProtocolException e) {
+                //TODO Handle problems..
+                Log.e("Client Protocol Exception", e + "");
+            } catch (IOException e) {
+                Log.e("IO Exception", e + "");
+            }
+            //When there's an extra parameter, time to get recommendation from the server
+            if(params.length > 1)
+                return params[1];
+            else {
+                return "false";
+            }
+
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            super.onPostExecute(result);
+            if(result.equals("true")) {
+                //end of the event
+                //Get the restaurants
+
+                new GetRestaurants().execute();
+            }
+
+
+        }
+
+    }
+
+    /*
+    ** Getting recommended restaurant list for the current user based on the user's ratings
+    ** At this point, the pio server is going to be trained and deployed
+    */
     private class GetRestaurants extends AsyncTask<String, String, String> {
 
 
@@ -1650,6 +1724,7 @@ public class PrefActivity extends Activity implements View.OnTouchListener {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
+            //Show progress dialog
             pd = ProgressDialog.show(PrefActivity.this, "", "Waiting for Recommendations...", false);
 
         }
@@ -1715,6 +1790,8 @@ public class PrefActivity extends Activity implements View.OnTouchListener {
                 app.setRestaurantMaps(restaurant_maps);
                 app.setRestaurants_list(restaurants_list);
                 pd.dismiss();
+
+                //Move to restraurant list activity
                 Intent i = new Intent(PrefActivity.this, RestaurantListActivity.class);
                 startActivity(i);
                 finish();
@@ -1730,72 +1807,4 @@ public class PrefActivity extends Activity implements View.OnTouchListener {
     }
 
 
-    private class PostRating extends AsyncTask<String, String, String> {
-
-
-        String url = "http://zorovn.hongo.wide.ad.jp/api/v1/reviews?categorize=restaurant";
-
-        public PostRating() {
-            super();
-        }
-
-        @Override
-        protected String doInBackground(String... params) {
-            HttpClient httpclient = new DefaultHttpClient();
-            HttpResponse response;
-            String responseString = null;
-            try {
-
-                HttpPost httpPost = new HttpPost(url);
-                httpPost.setEntity(new StringEntity(params[0]));
-                httpPost.setHeader("Content-type", "application/json");
-                response = httpclient.execute(httpPost);
-                StatusLine statusLine = response.getStatusLine();
-                if (statusLine.getStatusCode() == HttpStatus.SC_OK) {
-                    ByteArrayOutputStream out = new ByteArrayOutputStream();
-                    response.getEntity().writeTo(out);
-                    out.close();
-                    responseString = out.toString();
-                } else {
-                    //Closes the connection.
-                    response.getEntity().getContent().close();
-                    throw new IOException(statusLine.getReasonPhrase());
-                }
-            } catch (UnsupportedEncodingException e) {
-                Log.e("Unsupported Encoding", e + "");
-            } catch (ClientProtocolException e) {
-                //TODO Handle problems..
-                Log.e("Client Protocol Exception", e + "");
-            } catch (IOException e) {
-                Log.e("IO Exception", e + "");
-            }
-            if(params.length > 1)
-                return params[1];
-            else {
-                return "false";
-            }
-
-        }
-
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-
-        }
-
-        @Override
-        protected void onPostExecute(String result) {
-            super.onPostExecute(result);
-            if(result.equals("true")) {
-                //end of the event
-                //Get the restaurants
-
-                Log.e("Getting", "Restaurants");
-                new GetRestaurants().execute();
-            }
-
-
-        }
-
-    }
 }

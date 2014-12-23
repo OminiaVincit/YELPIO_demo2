@@ -2,6 +2,7 @@ package io.prediction.example.yelp;
 
 /**
  * Created by ilee on 12/11/14.
+ * This class is used to generate an unique device id
  */
 import android.content.Context;
 import android.content.SharedPreferences;

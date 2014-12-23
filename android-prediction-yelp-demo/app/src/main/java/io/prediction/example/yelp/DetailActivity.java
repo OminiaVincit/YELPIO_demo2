@@ -39,6 +39,10 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 
+
+/*
+** Show details of the restaurant including the users' reviews
+*/
 public class DetailActivity extends Activity {
 
     GoogleMap googleMap;
@@ -88,10 +92,12 @@ public class DetailActivity extends Activity {
         detail_image = (ImageView) findViewById(R.id.detail_image);
         detail_rating = (RatingBar) findViewById(R.id.detail_rating);
 
+        //Setting for review section
         review_rating1 = (RatingBar) findViewById(R.id.review_rating1);
         review1_short = (TextView) findViewById(R.id.review1_short);
         review1_long = (TextView) findViewById(R.id.review1_long);
 
+        //Full review is initially hidden but it can be shown when it's touched
         review1_short.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -187,7 +193,10 @@ public class DetailActivity extends Activity {
 
         //Detail setting
         Restaurant restaurant = (Restaurant) getIntent().getSerializableExtra("restaurant");
+
+        //Get the review from the server for the restaurant
         new GetReviews().execute(restaurant.getBid());
+
         detail_name.setText(restaurant.getName());
         setTitle(restaurant.getName());
         detail_address.setText(restaurant.getAddress());
@@ -213,7 +222,6 @@ public class DetailActivity extends Activity {
             @Override
             public void onInfoWindowClick(Marker marker) {
                 //This will redirect it to GoogleMaps
-
                 String url = "http://maps.google.com/maps?daddr=" + marker.getPosition().latitude + "," + marker.getPosition().longitude;
                 Intent intent = new Intent(android.content.Intent.ACTION_VIEW, Uri.parse(url));
                 intent.setClassName("com.google.android.apps.maps", "com.google.android.maps.MapsActivity");
@@ -224,6 +232,7 @@ public class DetailActivity extends Activity {
 
     }
 
+    //Shorten the full review
     private String toShort(String source) {
         boolean tooLong = false;
         String[] words = source.split(" ");
@@ -239,11 +248,12 @@ public class DetailActivity extends Activity {
         if(tooLong) {
             sb.append("... <a href=\"#\">Read more</a>");
         }
-
         return sb.toString();
 
     }
 
+
+    //Getting reviews from the server
     private class GetReviews extends AsyncTask<String, String, String> {
 
 
@@ -309,6 +319,7 @@ public class DetailActivity extends Activity {
                 Log.e("JSONException", e + "");
             }
 
+            //Set the reveiws
             review_rating1.setRating(new Float(ratings.get(0)));
             review1_short.setText(Html.fromHtml(toShort(contents.get(0))));
             review1_long.setText(contents.get(0));

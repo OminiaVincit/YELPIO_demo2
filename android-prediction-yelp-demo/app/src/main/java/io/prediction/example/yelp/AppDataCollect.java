@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- * Read user, restaurant set from local json file
+ * Save Restaurant maps
  */
 public class AppDataCollect extends Application {
     private HashMap<String, Restaurant> restaurant_maps = new HashMap<String, Restaurant>();
@@ -26,6 +26,4 @@ public class AppDataCollect extends Application {
     public void setRestaurantMaps(HashMap<String, Restaurant> restaurant_maps) {
         this.restaurant_maps = restaurant_maps;
     }
-
-
 }
